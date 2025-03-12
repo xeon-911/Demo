@@ -1,5 +1,6 @@
 from bot import Bot
-import web
+from web import keep_alive
 
-Bot().run()
-web.keep_alive()  
+if __name__ == "__main__":
+    keep_alive()
+    Bot().run()
