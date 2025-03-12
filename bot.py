@@ -1,6 +1,3 @@
-#(©)DOT_007
-
-from aiohttp import web
 from plugins import web_server
 
 import pyromod.listen
@@ -13,12 +10,12 @@ from config import API_HASH, APP_ID, LOGGER, TG_BOT_TOKEN, TG_BOT_WORKERS, FORCE
 
 
 ascii_art = """
-░█████╗░░█████╗░██████╗░███████╗██╗░░██╗██████╗░░█████╗░████████╗███████╗
-██╔══██╗██╔══██╗██╔══██╗██╔════╝╚██╗██╔╝██╔══██╗██╔══██╗╚══██╔══╝╚════██║
-██║░░╚═╝██║░░██║██║░░██║█████╗░░░╚███╔╝░██████╦╝██║░░██║░░░██║░░░░░███╔═╝
-██║░░██╗██║░░██║██║░░██║██╔══╝░░░██╔██╗░██╔══██╗██║░░██║░░░██║░░░██╔══╝░░
-╚█████╔╝╚█████╔╝██████╔╝███████╗██╔╝╚██╗██████╦╝╚█████╔╝░░░██║░░░███████╗
-░╚════╝░░╚════╝░╚═════╝░╚══════╝╚═╝░░╚═╝╚═════╝░░╚════╝░░░░╚═╝░░░╚══════╝
+░█████┐░█████┐█████┐██████┐█████┐░█████┐███████┐
+██┐┐██┐██┐┐██┐██████┬░██┐┐██┐██┐┐██┐┬██┐███████┐
+██┐░▒▒██┐░██┐░███████┐░░████┐┐██┐████████┐
+██┐░██┐██┐░██┐░██┐┐┐┐┐░██┐┐██┐██┐┐██┐
+┌████┐░████┐███████┐░█████┐░█████┐
+░┌█████┌░██████┌░██████┌░███████┐
 """
 
 class Bot(Client):
@@ -69,11 +66,6 @@ class Bot(Client):
         print(ascii_art)
         print("""Welcome to DOT_007 File Sharing Bot""")
         self.username = usr_bot_me.username
-        #web-response
-        app = web.AppRunner(await web_server())
-        await app.setup()
-        bind_address = "0.0.0.0"
-        await web.TCPSite(app, bind_address, PORT).start()
 
     async def stop(self, *args):
         await super().stop()
